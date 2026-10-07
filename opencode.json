@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "qwen/qwen3-coder-30b",
+  "small_model": "qwen/qwen3-coder-30b",
+  "enabled_providers": ["qwen"],
+  "autoupdate": false,
+  "share": "disabled",
+  "instructions": ["/home/alfred/opencode/reading-rules.md"],
+  "provider": {
+    "qwen": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Qwen lokal",
+      "options": {"baseURL": "http://100.72.231.65:8004/v1"},
+      "models": {
+        "qwen3-coder-30b": {
+          "name": "Qwen3-Coder 30B",
+          "limit": {"context": 262144, "output": 8192}
+        }
+      }
+    }
+  },
+  "permission": {
+    "*": "ask",
+    "host_postgres_read": "allow",
+    "host_sqlite_read": "allow",
+    "host_docker_read": "allow",
+    "host_file_read": "allow",
+    "host_git_read": "allow",
+    "host_execute_change": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "bash": {
+      "*": "ask",
+      "pwd": "allow",
+      "ls": "allow",
+      "ls *": "allow",
+      "stat *": "allow",
+      "head": "allow",
+      "head -n 5": "allow",
+      "head -n 10": "allow",
+      "head -n 20": "allow",
+      "head -n 50": "allow",
+      "tail": "allow",
+      "tail -n 20": "allow",
+      "wc -l": "allow"
+    },
+    "edit": "ask",
+    "external_directory": "ask",
+    "read": "allow"
+  }
+}
